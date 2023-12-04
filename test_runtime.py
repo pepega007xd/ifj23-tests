@@ -82,6 +82,11 @@ def test(input_code: str, expected_output: str, program_stdin: str = "",
     compiler_output = subprocess.run(
         COMPILER_PATH, input=input_code.encode(), capture_output=true)
 
+    if compiler_output.returncode == -11:
+        print_error("Your compiler segfaulted")
+        nr_failed += 1
+        return
+
     compiler_return_code = ErrorType(compiler_output.returncode)
 
     compiler_stdout = compiler_output.stdout

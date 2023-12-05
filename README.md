@@ -7,6 +7,8 @@
 
 - Then, run tests by executing `python3 compiler_tests.py`
 
+- Optionally, you can enable printing successful tests with command-line argument `--show-passing` (feature request for Tobito)
+
 ## Warning
 
 Tests are written for our project, and we implement a part of BOOLTHEN extension,

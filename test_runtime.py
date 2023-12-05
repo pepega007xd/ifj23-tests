@@ -1,3 +1,4 @@
+from sys import argv
 import traceback
 import subprocess
 from enum import Enum
@@ -53,6 +54,10 @@ class ErrorType(Enum):
     # interní chyba překladače tj. neovlivněná vstupním programem (např. chyba
     # alokace paměti atd.)
     error_internal = 99
+
+
+def print_green_bold(input: str):
+    print("\033[32;1m" + input + "\033[0m")
 
 
 def print_red_bold(input: str):
@@ -152,6 +157,10 @@ def test(input_code: str, expected_output: str, program_stdin: str = "",
         print_compiler_info()
         print_inpterp_info()
         nr_failed += 1
+
+    if argv.__contains__("--show-passing"):
+        print_green_bold("Test passed")
+        print_yellow(traceback.format_stack()[1].split('\n')[0])
 
 
 def print_exit():

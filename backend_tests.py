@@ -16,9 +16,9 @@ def test_invalid(code, expected_return_code):
 
 def test_expr(code, result):
     code = f"""
-        let result = {code}
-        write(result)
-    """
+let result = {code}
+write(result)
+"""
     test(code, result)
 
 
